@@ -20,6 +20,11 @@ on fs
         #exec /system/bin/e2fsck -y /dev/block/system
         #exec /system/bin/e2fsck -y /dev/block/data 
         #exec /system/bin/e2fsck -y /dev/block/cache
+        chmod 666 /dev/block/nande
+        chmod 666 /dev/block/nandh
+        fmtfs /dev/block/nande
+        fmtfs /dev/block/nandh
+        rm /system/firstrun
 
         mount ext4 /dev/block/system /system wait ro noatime nodev barrier=0 nobh data=writeback noauto_da_alloc
         mount ext4 /dev/block/data /data wait noatime nodev barrier=0 nobh data=writeback noauto_da_alloc
