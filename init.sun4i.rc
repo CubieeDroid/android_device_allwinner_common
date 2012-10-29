@@ -75,15 +75,25 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
+service dhcpcd_eth /system/bin/dhcpcd -ABKL
     class main
     disabled
     oneshot    
 
-service iprenew_eth0 /system/bin/dhcpcd -n
+service iprenew_eth /system/bin/dhcpcd -n
     class main
     disabled
     oneshot
+
+service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
+       class main
+    disabled
+    oneshot    
+
+service iprenew_eth0 /system/bin/dhcpcd -n
+       class main
+       disabled
+       oneshot
 
 service u3gmonitor /system/bin/u3gmonitor
     class main
